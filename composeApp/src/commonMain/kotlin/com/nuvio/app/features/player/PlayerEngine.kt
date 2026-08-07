@@ -11,13 +11,24 @@ interface PlayerEngineController {
     fun retry()
     fun setPlaybackSpeed(speed: Float)
     fun setMuted(muted: Boolean) {}
+
     fun getAudioTracks(): List<AudioTrack>
     fun getSubtitleTracks(): List<SubtitleTrack>
+
     fun selectAudioTrack(index: Int)
     fun selectSubtitleTrack(index: Int)
+
     fun setSubtitleUri(url: String)
+
+    fun selectAddonSubtitle(subtitle: AddonSubtitle) {
+    setSubtitleUri(subtitle.url)
+}
+
     fun clearExternalSubtitle()
     fun clearExternalSubtitleAndSelect(trackIndex: Int)
+   fun selectSubtitleTrackPreservingExternal(index: Int) {
+    clearExternalSubtitleAndSelect(index)
+}
     fun applySubtitleStyle(style: SubtitleStyleState) {}
     fun setSubtitleDelayMs(delayMs: Int) {}
     fun configureIosVideoOutput(settings: PlayerSettingsUiState) {}

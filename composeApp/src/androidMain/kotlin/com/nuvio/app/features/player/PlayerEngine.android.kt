@@ -991,7 +991,6 @@ private fun LibmpvPlayerSurface(
                 }
             }
             override fun eventProperty(property: String, value: Boolean) {
-                Log.d(TAG, "MPV_STATE: $property=$value")
                 if (property == "eof-reached" || property == "pause" || property == "paused-for-cache" || property == "seeking") {
                     dispatchSnapshot(updateKeepScreenOn = true)
                 }
@@ -1371,11 +1370,6 @@ private class NuvioLibmpvView(
                     .filterNot { it.label.startsWith(ADDON_SUBTITLE_TRACK_ID_PREFIX) }
                     .getOrNull(index)
                     ?.let { track ->
-                        Log.d(
-                        TAG,
-                        "selectSubtitleTrack: index=$index mpvTrackId=${track.id} label=${track.label} external=${track.isExternal}",
-                        )
-                        
                         mpv.setPropertyInt("sid", track.id)
                     }
                 }

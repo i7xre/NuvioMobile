@@ -21,14 +21,16 @@ interface PlayerEngineController {
     fun setSubtitleUri(url: String)
 
     fun selectAddonSubtitle(subtitle: AddonSubtitle) {
-    setSubtitleUri(subtitle.url)
-}
+        setSubtitleUri(subtitle.url)
+    }
 
     fun clearExternalSubtitle()
     fun clearExternalSubtitleAndSelect(trackIndex: Int)
-   fun selectSubtitleTrackPreservingExternal(index: Int) {
-    clearExternalSubtitleAndSelect(index)
-}
+
+    fun selectSubtitleTrackPreservingExternal(index: Int) {
+        clearExternalSubtitleAndSelect(index)
+    }
+
     fun applySubtitleStyle(style: SubtitleStyleState) {}
     fun setSubtitleDelayMs(delayMs: Int) {}
     fun configureIosVideoOutput(settings: PlayerSettingsUiState) {}
